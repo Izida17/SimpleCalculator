@@ -1,32 +1,31 @@
-let display = document.getElementById('display'); // Получаем ссылку на поле ввода
-let historyDiv = document.getElementById('history'); // Получаем ссылку на div истории
-let currentExpression = ""; // переменная для хранения текущего выражения
+let display = document.getElementById('display'); // РџРѕР»СѓС‡Р°РµРј СЃСЃС‹Р»РєСѓ РЅР° РїРѕР»Рµ РІРІРѕРґР°
+let historyDiv = document.getElementById('history'); // РџРѕР»СѓС‡Р°РµРј СЃСЃС‹Р»РєСѓ РЅР° div РёСЃС‚РѕСЂРёРё
+let currentExpression = ""; // РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ С‚РµРєСѓС‰РµРіРѕ РІС‹СЂР°Р¶РµРЅРёСЏ
 
 function appendToDisplay(value) {
-    currentExpression += value;  // Добавляем значение к текущему выражению
-    display.value = currentExpression; // Обновляем отображение
+    currentExpression += value;  // Р”РѕР±Р°РІР»СЏРµРј Р·РЅР°С‡РµРЅРёРµ Рє С‚РµРєСѓС‰РµРјСѓ РІС‹СЂР°Р¶РµРЅРёСЋ
+    display.value = currentExpression; // РћР±РЅРѕРІР»СЏРµРј РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ
 }
 
 function clearDisplay() {
-    currentExpression = ""; // Очищаем текущее выражение
-    display.value = ""; // Очищаем дисплей
+    currentExpression = ""; // РћС‡РёС‰Р°РµРј С‚РµРєСѓС‰РµРµ РІС‹СЂР°Р¶РµРЅРёРµ
+    display.value = ""; // РћС‡РёС‰Р°РµРј РґРёСЃРїР»РµР№
 }
 
 function calculate() {
     try {
-        let result = eval(currentExpression); // Вычисляем результат
-        display.value = result; // Отображаем результат
+        let result = eval(currentExpression); // Р’С‹С‡РёСЃР»СЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚
+        display.value = result; // РћС‚РѕР±СЂР°Р¶Р°РµРј СЂРµР·СѓР»СЊС‚Р°С‚
 
-        addToHistory(currentExpression + " = " + result); // Добавляем в историю
-        currentExpression = result.toString(); //Сохраняем результат для след вычислений
-
+        addToHistory(currentExpression + " = " + result); // Р”РѕР±Р°РІР»СЏРµРј РІ РёСЃС‚РѕСЂРёСЋ
+        currentExpression = result.toString(); // РЎРѕС…СЂР°РЅСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ РґР»СЏ СЃР»РµРґ РІС‹С‡РёСЃР»РµРЅРёР№
     } catch (error) {
-        display.value = "Error"; // Отображаем ошибку
+        display.value = "Error"; // РћС‚РѕР±СЂР°Р¶Р°РµРј РѕС€РёР±РєСѓ
     }
 }
 
 function addToHistory(expression) {
-    let newEntry = document.createElement('p'); // Создаем новый элемент <p>
-    newEntry.textContent = expression; // Устанавливаем текст элемента
-    historyDiv.appendChild(newEntry); // Добавляем элемент в блок истории
+    let newEntry = document.createElement('p'); // РЎРѕР·РґР°РµРј РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ <p>
+    newEntry.textContent = expression; // СЃС‚Р°РЅР°РІР»РёРІР°РµРј С‚РµРєСЃС‚ СЌР»РµРјРµРЅС‚Р°
+    historyDiv.appendChild(newEntry); // Р”РѕР±Р°РІР»СЏРµРј СЌР»РµРјРµРЅС‚ РІ Р±Р»РѕРє РёСЃС‚РѕСЂРёРё
 }
