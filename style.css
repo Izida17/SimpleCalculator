@@ -19,7 +19,7 @@
 
 .buttons {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr); /* 4 колонки одинаковой ширины */
+	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 5px;
 }
 
